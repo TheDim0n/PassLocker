@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  database:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: passlocker_db
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+  backend:
+    build: ./backend
+    command: bash -c "python migrate.py && python run.py"
+    environment:
+      DATABASE_URL: 'postgresql+psycopg2://postgres:password@database:5432/passlocker_db'
+      DEBUG: 0
+      SECRET_KEY: 'secret'
+      DEFAULT_USER_LOGIN: test
+      DEFAULT_USER_PASSWORD: password
+      ACCESS_TOKEN_EXPIRES_MINUTES: 60
+    depends_on:
+      - database
+  frontend:
+    build: ./frontend
+  proxy:
+    build: ./proxy
+    ports:
+      - 85:80
+
+volumes:
+  pg_data: {}

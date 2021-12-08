@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  backend:
+    command: bash -c "python migrate.py && python run.py"
+    environment:
+      DATABASE_URL: ${DATABASE_URL?}
+      SECRET_KEY: ${SECRET_KEY?}
+      DEFAULT_USER_LOGIN: ${DEFAULT_USER_LOGIN?}
+      DEFAULT_USER_PASSWORD: ${DEFAULT_USER_PASSWORD?}
+      ACCESS_TOKEN_EXPIRES_MINUTES: ${ACCESS_TOKEN_EXPIRES_MINUTES?}
+      DEBUG: 0
+  proxy:
+    ports:
+      - ${PROXY_PORT?}:80

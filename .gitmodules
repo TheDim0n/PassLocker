@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/TheDim0n/PassLocker-Backend
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/TheDim0n/PassLocker-Frontend
