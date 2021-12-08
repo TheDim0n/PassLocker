@@ -9,17 +9,13 @@ jobs:
     steps:
       - name: Check Out Repo
         uses: actions/checkout@v2
-      - name: Go to proxy dir
-        run: cd proxy
       - name: Build proxy
-        run: docker build . --file Dockerfile --tag ghcr.io/thedim0n/passlocker/proxy:latest
+        run: docker build proxy --tag ghcr.io/thedim0n/passlocker/proxy:latest
       - name: Log in to registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
       - name: Push image
-        run: |
-          docker tag ghcr.io/thedim0n/passlocker/proxy ghcr.io/thedim0n/passlocker/proxy:latest
-          docker push ghcr.io/thedim0n/passlocker/proxy:latest
+        run: docker push ghcr.io/thedim0n/passlocker/proxy:latest
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
