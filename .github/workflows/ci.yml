@@ -9,16 +9,20 @@ jobs:
     steps:
       - name: Check Out Repo
         uses: actions/checkout@v2
+      - name: Login to GitHub registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Docker Build & Push Action
         id: docker_build
         uses: mr-smithers-excellent/docker-build-push@v5.5
         with:
           directory: proxy
-          dockerfile: ./Dockerfile
+          dockerfile: Dockerfile
           image: ghcr.io/thedim0n/passlocker/proxy:latest
           registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
