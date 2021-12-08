@@ -18,11 +18,11 @@ jobs:
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v1
-      - name: Build and push
+      - name: Docker Build & Push Action
         id: docker_build
-        uses: docker/build-push-action@v2
+        uses: mr-smithers-excellent/docker-build-push@v5.5
         with:
-          context: ./proxy/
+          directory: proxy
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
