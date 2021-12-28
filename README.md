@@ -10,7 +10,7 @@ Another secret keys storage tool.
 4. [Run with Docker](#run)
 ---------
 ## Technology stack <a name="stack"></a>
-![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+[![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)[![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)](https://angular.io/)[![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)[![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)](https://nginx.org/)[![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 
 ## Download <a name="download"></a>
 ```
@@ -23,8 +23,8 @@ git submodule update --init
 Create `.env` file in project directory:
 ```
 SECRET_KEY= # secret key for generating JWT
-DEFAULT_USER_LOGIN= # your username
-DEFAULT_USER_PASSWORD= # your password
+DEFAULT_USER_LOGIN= # your username, must be at least 4 characters
+DEFAULT_USER_PASSWORD= # your password, must be at least 8 characters
 ACCESS_TOKEN_EXPIRES_MINUTES= # JWT lifetime in minutes
 PROXY_PORT= # published port (of your machine)
 ```
