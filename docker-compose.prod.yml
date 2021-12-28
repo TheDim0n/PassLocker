@@ -10,10 +10,12 @@ services:
       DEFAULT_USER_PASSWORD: ${DEFAULT_USER_PASSWORD?}
       ACCESS_TOKEN_EXPIRES_MINUTES: ${ACCESS_TOKEN_EXPIRES_MINUTES?}
       DEBUG: 0
-    resources:
-      limits:
-        cpu: 0.5
-        memory: 100M
+      ROOT_PATH: /api
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 100M
   proxy:
     ports:
       - ${PROXY_PORT?}:80
