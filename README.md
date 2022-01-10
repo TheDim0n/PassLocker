@@ -3,7 +3,7 @@
 Another secret keys storage tool.
 > Please **use this project locally** for more security.
 
-**Content:**
+**Contents:**
 1. [Technology stack](#stack)
 2. [Download the project](#download)
 3. [Setup environment variables](#envs)
