@@ -9,7 +9,7 @@ on:
 
 jobs:
   create-json:
-    uses: TheDim0n/.github/blob/main/.github/workflows/create_json.yml@main
+    uses: TheDim0n/.github/workflows/create_json.yml@main
     with:
       username: ${{ secrets.PAT }}
     
