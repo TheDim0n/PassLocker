@@ -10,5 +10,5 @@ on:
 jobs:
   create-json:
     uses: TheDim0n/.github/.github/workflows/create_json.yml@main
-    with:
+    secrets:
       token: ${{ secrets.PAT }}
