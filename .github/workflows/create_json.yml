@@ -9,6 +9,6 @@ on:
 
 jobs:
   create-json:
-    uses: TheDim0n/.github/.github/workflows/create_json.yml@main
+    uses: TheDim0n/.github/workflows/create_json.yml@main
     secrets:
       token: ${{ secrets.PAT }}
